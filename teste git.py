@@ -1,5 +1,4 @@
-print('Hello, world!')
-print('oxi')import random
+import random
 NOME=input("insira seu nome: ")
 print("Bem vindo ao jogo Craps {0}".format(NOME))
 n=50
