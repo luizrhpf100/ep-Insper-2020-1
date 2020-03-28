@@ -46,7 +46,6 @@ while not game_over:
                     ganha_ou_perde=False
                 else:
                     print("Try again")
-        n=Saldo
         print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
     if escolhe_aposta== 'field' or 'Field':
@@ -73,6 +72,7 @@ while not game_over:
         dado7=random.randint(1,6)
         dado8=random.randint(1,6)
         soma_dadosAC= (dado7+dado8)
+        print(soma_dadosAC)
         if soma_dadosAC == 2 or soma_dadosAC == 3 or soma_dadosAC == 12:
             Saldo= 8*Aposta_inicial+ (n-Aposta_inicial)
             print("Parabéns, você ganhou {0} fichas". format(Aposta_inicial*7))
