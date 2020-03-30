@@ -101,5 +101,6 @@ while not game_over:
     deseja_continuar=input("Desejar começar uma nova rodada?")
     if deseja_continuar == "não" or deseja_continuar == "nao":
         game_over=True
+        print("Game Over, até a próxima {0}".format(NOME))
     else:
         print("Boa escolha!")
