@@ -3,6 +3,7 @@ NOME=input("insira seu nome: ")
 print("Bem vindo ao jogo Craps, {0}".format(NOME))
 game_over=False
 n=50
+Saldo=0
 while not game_over:
     print("Para iniciar serão dadas {0} fichas para você".format(n))
     Iniciar= False
@@ -14,6 +15,7 @@ while not game_over:
             print("aposta inválida; escolha um número de 0 a {0}". format(n))
             Iniciar= False
     escolhe_aposta=input("escolha o tipo de aposta:")
+    escolhe_again = escolhe_aposta
     if escolhe_aposta == "Pass Line Bet":
         dado1=random.randint(1,6)
         dado2=random.randint(1,6)
@@ -30,25 +32,27 @@ while not game_over:
             point=soma_dadosCO
             print("Você passou para a fase Point")
 #Fase Point
-            ganha_ou_perde=True
-            while ganha_ou_perde:
-                dado3=random.randint(1,6)
-                dado4=random.randint(1,6)
-                soma_dadosP=(dado3+dado4)
-                print(soma_dadosP)
-                if point == soma_dadosP:
-                    print("HH Você ganhou {0} fichas". format(Aposta_inicial))
-                    Saldo=Aposta_inicial*2 + (n-Aposta_inicial)
-                    ganha_ou_perde=False
-                elif soma_dadosP == 7:
-                    print ("Você perdeu {0} fichas.". format(Aposta_inicial))
-                    Saldo= n-Aposta_inicial
-                    ganha_ou_perde=False
-                else:
-                    print("Try again")
-        print("Agora você tem {0} fichas". format(Saldo))
+            escolhe_again=input("escolha tipo de aposta: ")
+            if escolhe_again == 'Point':
+                ganha_ou_perde=True
+                while ganha_ou_perde:
+                    dado3=random.randint(1,6)
+                    dado4=random.randint(1,6)
+                    soma_dadosP=(dado3+dado4)
+                    print(soma_dadosP)
+                    if point == soma_dadosP:
+                        print("HH Você ganhou {0} fichas". format(Aposta_inicial))
+                        Saldo=Aposta_inicial*2 + (n-Aposta_inicial)
+                        ganha_ou_perde=False
+                    elif soma_dadosP == 7:
+                        print ("Você perdeu {0} fichas.". format(Aposta_inicial))
+                        Saldo= n-Aposta_inicial
+                        ganha_ou_perde=False
+                    else:
+                        print("Try again")
+            print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
-    if escolhe_aposta== 'field' or 'Field':
+    if escolhe_aposta== 'Field' or escolhe_again == 'Field':
         dado5=random.randint(1,6)
         dado6=random.randint(1,6)
         soma_dadosF= (dado5+dado6)
@@ -68,7 +72,7 @@ while not game_over:
         n=Saldo
         print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
-    if escolhe_aposta == "Any Craps":
+    if escolhe_aposta == "Any Craps" or escolhe_again== "Any Craps":
         dado7=random.randint(1,6)
         dado8=random.randint(1,6)
         soma_dadosAC= (dado7+dado8)
@@ -82,7 +86,7 @@ while not game_over:
         n=Saldo
         print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
-    if escolhe_aposta == "Twelve":
+    if escolhe_aposta == "Twelve" or escolhe_again== "Twelve":
         dado9=random.randint(1,6)
         dado10=random.randint(1,6)
         soma_dadosT= (dado9+dado10)
