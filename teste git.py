@@ -33,7 +33,7 @@ while not game_over:
             print("Você passou para a fase Point")
 #Fase Point
             escolhe_again=input("escolha tipo de aposta: ")
-            if escolhe_again == 'Point':
+            if escolhe_again == 'Pass Line Bet':
                 ganha_ou_perde=True
                 while ganha_ou_perde:
                     dado3=random.randint(1,6)
@@ -41,7 +41,7 @@ while not game_over:
                     soma_dadosP=(dado3+dado4)
                     print(soma_dadosP)
                     if point == soma_dadosP:
-                        print("HH Você ganhou {0} fichas". format(Aposta_inicial))
+                        print(" Você ganhou {0} fichas". format(Aposta_inicial))
                         Saldo=Aposta_inicial*2 + (n-Aposta_inicial)
                         ganha_ou_perde=False
                     elif soma_dadosP == 7:
@@ -51,6 +51,7 @@ while not game_over:
                     else:
                         print("Try again")
             print("Agora você tem {0} fichas". format(Saldo))
+        n=Saldo
 #Qualquer fase do jogo
     if escolhe_aposta== 'Field' or escolhe_again == 'Field':
         dado5=random.randint(1,6)
@@ -98,9 +99,13 @@ while not game_over:
             print("Que pena, você perdeu {0} fichas". format(Aposta_inicial))
         n=Saldo
         print("Agora você tem {0} fichas". format(Saldo))
-    deseja_continuar=input("Desejar começar uma nova rodada?")
-    if deseja_continuar == "não" or deseja_continuar == "nao":
+    if n==0:
         game_over=True
-        print("Game Over, até a próxima {0}".format(NOME))
+        print("Game Over, até a próxima, {0}".format(NOME))
     else:
-        print("Boa escolha!")
+        deseja_continuar=input("Desejar começar uma nova rodada?")
+        if deseja_continuar == "não" or deseja_continuar == "nao":
+            game_over=True
+            print("Game Over, até a próxima, {0}".format(NOME))
+        else:
+            print("Boa escolha!")
