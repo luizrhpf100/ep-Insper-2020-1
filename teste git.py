@@ -50,8 +50,8 @@ while not game_over:
                         ganha_ou_perde=False
                     else:
                         print("Try again")
-            print("Agora você tem {0} fichas". format(Saldo))
-        n=Saldo
+                print("Agora você tem {0} fichas". format(Saldo))
+                n=Saldo
 #Qualquer fase do jogo
     if escolhe_aposta== 'Field' or escolhe_again == 'Field':
         dado5=random.randint(1,6)
@@ -68,10 +68,10 @@ while not game_over:
             print('você ganhou {0} fichas'.format(Aposta_inicial*3))
             Saldo=  Aposta_inicial*4 + (n-Aposta_inicial)
         else:
-            print('você perdeu {0} fichas'.format(Aposta_inicial))
-            Saldo= (n-Aposta_inicial)
+            print('você perdeu {0} fichas'.format(n))
+            Saldo= (n-n)
+        print("Agora você tem {0} fichas".format(Saldo))
         n=Saldo
-        print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
     if escolhe_aposta == "Any Craps" or escolhe_again== "Any Craps":
         dado7=random.randint(1,6)
@@ -84,7 +84,7 @@ while not game_over:
         else:
             Saldo=n-Aposta_inicial
             print("Que pena, você perdeu {0} fichas". format(Aposta_inicial))
-        n=Saldo
+        n= Saldo
         print("Agora você tem {0} fichas". format(Saldo))
 #Qualquer fase do jogo
     if escolhe_aposta == "Twelve" or escolhe_again== "Twelve":
@@ -95,7 +95,7 @@ while not game_over:
             Saldo= 31*Aposta_inicial + (n-Aposta_inicial)
             print("Parabéns, você ganhou {0} fichas". format(Aposta_inicial*30))
         else:
-            Saldo= n-Aposta_inicial
+            Saldo= (n-Aposta_inicial)
             print("Que pena, você perdeu {0} fichas". format(Aposta_inicial))
         n=Saldo
         print("Agora você tem {0} fichas". format(Saldo))
