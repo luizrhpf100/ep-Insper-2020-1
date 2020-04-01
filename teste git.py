@@ -58,7 +58,7 @@ while not game_over:
         dado6=random.randint(1,6)
         soma_dadosF= (dado5+dado6)
         print(soma_dadosF)
-        if soma_dadosF== 3 or 4 or 9 or 10 or 11:
+        if soma_dadosF== 3 or soma_dadosF== 4 or soma_dadosF== 9 or soma_dadosF== 10 or soma_dadosF== 11:
             print('você ganhou {0} fichas'.format(Aposta_inicial))
             Saldo= Aposta_inicial*2 + (n-Aposta_inicial)
         elif soma_dadosF== 2:
